@@ -10,6 +10,7 @@ and open the template in the editor.
         <title></title> 
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/NoteCar.css" rel="stylesheet" type="text/css"/>
+        <link href="css/Note_Message.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -53,13 +54,15 @@ AND `chat`.`user_id_rec` = '" . $_SESSION["user_id"] . "' ");
                     <!-- current #{user} avatar -->
                     <div class="user_avatar">
                         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/73.jpg">
-                    </div><!-- the comment body --><div class="comment_body">
-
+                    </div><!-- the comment body --><div class="comment_body">                        
                         <input type="hidden" name="note_id" id="note_id" value="' . $result[$x]['note_id'] . '">
-                        <div>' . $result[$x]['username'] . ' Sent <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php">' . $NoteTitle . '</a></div>
-
-                        <p> ' . $result[$x]['timestamp'] . '<p>
-                        <p> ' . $ago . '<p>
+                        <P>'.$result[$x]['note_id'].'</p>
+                        <div>' . $result[$x]['username'] . ' Sent <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php?note_id= '.$result[$x]['note_id'].'&user_id_send = '.$result[$x]['user_id_send'].'                                                                                                                                                                                                          &user_id_rec = '.$result[$x]['user_id_send'].'">' . $NoteTitle . '</a>
+ </div>
+                        
+                        <div class="time_ago"><br><br><br>
+                        <p class="ago"> ' . $ago . '<p>
+                            </div>
                         <div id="Result"></div>
                     </div>
 

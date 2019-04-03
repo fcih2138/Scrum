@@ -11,14 +11,13 @@ if(isset($_POST['submit-login']) AND $_POST['submit-login'] == "Login"){
     $admin_id = $admin->Login($username,$password);
     $user = new user();
     $user_id = $user->Login($username,$password);
-    
+    $_SESSION["username"] = $user->username;
     if ($admin_id != 0){
         $_SESSION["admin_id"] = $admin_id;
         header("Location:../View/adminHome.php");
         exit;
     }else if($user_id != 0 && $user->isBlocked != "true"){
-        $_SESSION["user_id"] = $user_id;
-        $_SESSION["username"] = $user->username;
+        $_SESSION["user_id"] = $user_id;        
         header("Location:../View/mynotes.php");
         exit;
     }else{
