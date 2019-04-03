@@ -21,8 +21,8 @@ and open the template in the editor.
         $messages = new Mesage_Core();
         $messages->query(" SELECT `chat`.`user_id_send`, `chat`.`user_id_rec` ,`chat`.`timestamp`,`chat`.`note_id`,`chat`.`message`,`users`.`username`,`users`.`user_id` 
 FROM `chat` JOIN `users` 
-WHERE `users`.`username` = (SELECT `users`.`username` from `users` WHERE `users`.`user_id` = `chat`.`user_id_send`)
-AND `chat`.`user_id_rec` = '" . $_SESSION["user_id"] . "' ");
+WHERE `users`.`username` = (SELECT `users`.`username` from `users` WHERE `users`.`user_id` = `chat`.`user_id_rec`)
+AND `chat`.`user_id_send` = '" . $_SESSION["user_id"] . "' ");
         $result = $messages->rows();
 
 
@@ -63,7 +63,7 @@ AND `chat`.`user_id_rec` = '" . $_SESSION["user_id"] . "' ");
                         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/73.jpg">
                     </div><!-- the comment body --><div class="comment_body">                        
                         <input type="hidden" name="note_id" id="note_id" value="' . $result[$x]['note_id'] . '">                        
-                        <div>' . $result[$x]['username'] . ' Sent <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php?note_id= '.$result[$x]['note_id'].'&user_id_send='.$result[$x]['user_id_send'].'&user_id_rec='.$result[$x]['user_id_rec'].'">' . $NoteTitle . '</a></div>
+                        <div>Sent to ' . $result[$x]['username'] . ' <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php?note_id= '.$result[$x]['note_id'].'&user_id_send='.$result[$x]['user_id_send'].'&user_id_rec='.$result[$x]['user_id_rec'].'">' . $NoteTitle . '</a></div>
                         
                         <div class="time_ago"><br><br><br>
                         <p class="ago"> ' . $ago . '<p>

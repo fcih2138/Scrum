@@ -17,7 +17,7 @@ and open the template in the editor.
 </head>
 <body>
     <?php
-    session_start();
+    session_start();    
     include_once ('../Model/Note.php');
     include_once ('../Model/Decryption.php');
     include '../Model/Meesage_Core.php';
@@ -26,40 +26,42 @@ and open the template in the editor.
     $n = new Note();
     $id = $_SESSION['user_id'];
 
-    $sql = "SELECT * from chat WHERE user_id_send = 3 and user_id_rec = 1 and note_id = 2";
-    $result = $n->listNotes($id);
+    $sql = "SELECT * , note.note_imageurl,note.note_title, note.note_id from chat join note WHERE chat.user_id_send = '" . $_REQUEST['user_id_send'] . "' and chat.user_id_rec = '" . $_REQUEST['user_id_rec'] . "' and chat.note_id = '" . $_REQUEST["note_id"] . "' and chat.note_id = note.note_id";
 
-    //echo 'Hello';
-//echo $_REQUEST["note_id"];
-    while ($arr = mysqli_fetch_assoc($result)) {
-
-        if (isset($_REQUEST["note_id"])) {
-            
-            echo $_REQUEST["note_id"];
-            echo $_REQUEST['user_id_send'];
-            echo $_REQUEST['user_id_rec'];;
-
-            $d = new Decryption();
-            $msg = $d->decrypte($arr["note_imageurl"], $_REQUEST["note_id"]);
-            //echo $msg;
+    $message_obj = new Mesage_Core();
+    $message_obj->query($sql);
+    $result = $message_obj->rows();
 
 
-
-
-            echo '<div class="container">
-  <div class="Image">
-    <img src="http://localhost/SW2_Mohamed/encrypted/' . $arr["note_imageurl"] . '" class="img img-responsive" alt="Cinque Terre">
-  </div>
-  <div class="Message">
-    <p>"' . $msg . '"</p>
-  </div>';
-        }
-        }
-  
-  
-
-            ?>        
+    $d = new Decryption();
+    $msg = $d->decrypte($result[0]["note_imageurl"], $_REQUEST["note_id"]);
+    $imgurl = $result[0]["note_imageurl"];
+?>
+    <div id="header"></div>
+  <?php  
+    echo '<section class="details-card">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card-content">
+                    <div class="card-img">
+                        <img src="http://localhost/SW2_Mohamed/encrypted/' . $imgurl . '" class="img img-responsive" alt="Cinque Terre">                        
+                    </div>
+                    <div class="card-desc">
+                        <h3>' . $result[0]["note_title"] . '</h3>
+                        <p>' . $msg . '</p>
+                             
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+    </div>
+</section>
+<!-- details card section starts from here -->';
+    ?>        
     <script src="../View/js/jquery-1.12.1.min.js" type="text/javascript"></script>
     <script src="../View/js/bootstrap.min.js" type="text/javascript"></script>
+    
 </body>
 </html>

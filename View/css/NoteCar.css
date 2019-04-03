@@ -60,7 +60,7 @@ body {
   width: 100%;
   height: auto;
   padding: 20px 0;
-  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #6495ED;
 }
 .comment_block .new_comment .user_comment {
   list-style-type: none;

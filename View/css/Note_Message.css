@@ -5,3 +5,16 @@ p .ago {
     margin-bottom: 0px;
     color:red;
 }
+
+.Comment{
+    margin-top: 70px;
+}
+
+.headerUI{
+    padding: 6px 0px 16px;
+}
+
+.headerUI h2{
+    color: #162643;
+    font-size: 16px;
+}

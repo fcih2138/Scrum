@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>My Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="css/style.css">
     
 
@@ -61,7 +61,12 @@
         </li>
         <li>
             <a href="MyMessages.php">
-          <span class='glyphicon glyphicon-envelope'></span> MY Messages
+          <span class='glyphicon glyphicon-envelope'></span> Inbox
+          </a>
+        </li>
+        <li>
+            <a href="SentMessages.php">
+          <span class='glyphicon glyphicon-envelope'></span> Sent Messages
           </a>
         </li>
         
@@ -80,7 +85,7 @@
     <div id="content-wrapper">
       <div class="container-fluid">
         <div class="text-center">
-          <h1>Welcome <?php $_SESSION["username"]?><span>!</span></h1>          
+            <h1>Welcome <?php echo $_SESSION["username"]?><span>!</span></h1>          
           <h3>See all Notes you have Encrypted</h3>
         </div>
         <div class="row">
