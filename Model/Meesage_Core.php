@@ -21,4 +21,9 @@ public function rows()
     
     return $this->rows;
 }
+
+public function DbClose()
+{
+    mysqli_close($this->db);    
+}
 }

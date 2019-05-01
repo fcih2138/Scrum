@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -9,8 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
 
-  <?php
-      session_start();
+  <?php      
       if(!isset($_SESSION['admin_id'])){
         header("Location:index.php");
         exit;

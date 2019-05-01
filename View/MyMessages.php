@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -11,6 +14,7 @@ and open the template in the editor.
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/NoteCar.css" rel="stylesheet" type="text/css"/>
         <link href="css/Note_Message.css" rel="stylesheet" type="text/css"/>
+        <link href="css/navigation.css" rel="stylesheet" type="text/css"/>
 
     </head>
     <body>
@@ -34,10 +38,7 @@ AND `chat`.`user_id_rec` = '" . $_SESSION["user_id"] . "' ");
         //echo var_dump($result);
         // echo $result[0]['note_id'];
         //echo $note_title;
-        echo ' <div class="headerUI">
-               <h2>Your Messages</h2>
-               <hr>
-           </div>';
+        
         echo ' <div class="Comment">';
         for ($x = 0; $x < $rows_no; $x++) {
             //echo $result[$x]['note_id'];
@@ -63,8 +64,7 @@ AND `chat`.`user_id_rec` = '" . $_SESSION["user_id"] . "' ");
                         <img src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/73.jpg">
                     </div><!-- the comment body --><div class="comment_body">                        
                         <input type="hidden" name="note_id" id="note_id" value="' . $result[$x]['note_id'] . '">                        
-                        <div>' . $result[$x]['username'] . ' Sent <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php?note_id= '.$result[$x]['note_id'].'&user_id_send='.$result[$x]['user_id_send'].'&user_id_rec='.$result[$x]['user_id_rec'].'">' . $NoteTitle . '</a></div>
-                        
+                        <div class="comment_header">' . $result[$x]['username'] . ' Sent <a href="http://localhost/SW2_Mohamed/Controller/Note_Message.php?note_id= '.$result[$x]['note_id'].'&user_id_send='.$result[$x]['user_id_send'].'&user_id_rec='.$result[$x]['user_id_rec'].'">' . $NoteTitle . '</a></div>                        
                         <div class="time_ago"><br><br><br>
                         <p class="ago"> ' . $ago . '<p>
                             </div>

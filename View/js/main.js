@@ -4,27 +4,27 @@ $(document).ready(function(){
     $('.timer').countTo();
 
     //nice scroll code
-    $("html").niceScroll({
-        cursorwidth:"12px",
-        cursorborderradius:0,
-        cursorcolor:"#f6d014"
-    });
+//    $("html").niceScroll({
+//        cursorwidth:"12px",
+//        cursorborderradius:0,
+//        cursorcolor:"#f6d014"
+//    });
 
     // scroll to top button
-    var scrollButton = $("#scrollTop .fa-chevron-circle-up");
+    //var scrollButton = $("#scrollTop .fa-chevron-circle-up");
 
-    $(window).scroll(function(){
-
-        if ($(this).scrollTop() >= 400)
-            scrollButton.show(400);
-        else
-            scrollButton.hide(400);
-
-    });
-
-    scrollButton.click(function(){
-        $("html,body").animate({scrollTop : 0},850);
-    });
+//    $(window).scroll(function(){
+//
+//        if ($(this).scrollTop() >= 400)
+//            scrollButton.show(400);
+//        else
+//            scrollButton.hide(400);
+//
+//    });
+//
+//    scrollButton.click(function(){
+//        $("html,body").animate({scrollTop : 0},850);
+//    });
     
     $("#closeBtn").click(function(){
         $("#toBeClosed").fadeOut();

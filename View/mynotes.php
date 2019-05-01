@@ -1,3 +1,12 @@
+<?php
+      session_start();
+      if(!isset($_SESSION['user_id'])){
+        header("Location:index.php");
+        exit;
+      }
+      
+      
+  ?>
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -11,74 +20,12 @@
 
   </head>
 
-  <?php
-      session_start();
-      if(!isset($_SESSION['user_id'])){
-        header("Location:index.php");
-        exit;
-      }
-      
-      
-  ?>
+
 
   <body>
 
     <!-- Header - Start  -->
-    <header id="header">
-      <div class="menu-button">
-        <div id="nav-icon3">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        </div>
-      </div>
-      <div id="top-bar">
-        <h3 style="font-weight: bold;">Dashboard</h3>
-      </div>
-    </header>
-    <!-- Header - End  -->
-
-
-    <!-- Navigation - Start  -->
-    <nav id="sidemenu">
-      <div class="main-menu">
-        <ul class='main-menu'>
-        <li class="link-active">
-            <a href="mynotes.php">
-          <span class='glyphicon glyphicon-home'></span> My Notes
-          </a>
-        </li>
-        <li>
-          <a href="addnote.php">
-          <span class='glyphicon glyphicon-comment'></span> Add Note
-          </a>
-        </li>
-        <li>
-          <a href="myaccount.php">
-          <span class='glyphicon glyphicon-edit'></span> Edit Profile
-          </a>
-        </li>
-        <li>
-            <a href="MyMessages.php">
-          <span class='glyphicon glyphicon-envelope'></span> Inbox
-          </a>
-        </li>
-        <li>
-            <a href="SentMessages.php">
-          <span class='glyphicon glyphicon-envelope'></span> Sent Messages
-          </a>
-        </li>
-        
-        <li class="main-menu">
-            <a href="../Controller/Logout.php">
-          <span class='glyphicon glyphicon-log-out'></span> Logout
-          </a>
-        </li>
-        </ul>
-      </div>
-      <p class="copyright">My Notes - &copy; 2018</p>
-    </nav>
+    <div id="header"></div>
     <!-- Navigation - End  -->
 
     <!-- Content - Start  -->
@@ -129,6 +76,7 @@
     <script src="js/jquery-1.12.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/jquery.countTo.js" type="text/javascript"></script>
+    <script src="js/header.js" type="text/javascript"></script>
 
 <!--    <script src="http://localhost/SW2_Mohamed/View/js/jquery-1.12.1.min.js" type="text/javascript"></script>
     <script src="http://localhost/SW2_Mohamed/View/js/jquery.countTo.js" type="text/javascript"></script>

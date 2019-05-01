@@ -14,7 +14,7 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
   color: #333;
-  background-color: #f4f4f4;
+  
 }
 .user_avatar {
   width: 65px;
@@ -101,8 +101,8 @@ body {
 .comment_block .new_comment .comment_toolbar ul li {
   display: inline-block;
   padding: 5px;
-  font-size: 0.7rem;
-  color: #d9d9d9;
+  font-size: 1.4rem;
+  color: #c52b2b;
 }
 .comment_block .new_comment .comment_toolbar ul li:hover {
   cursor: pointer;
